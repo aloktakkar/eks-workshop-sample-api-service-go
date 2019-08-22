@@ -14,7 +14,11 @@ func main() {
 
 		f := fib()
 
-		res := &response{Message: "Hello World"}
+		//res := &response{Message: "Hello World"}
+		
+		res:= http.FileServer(http.Dir("static"))
+		
+		http.Handle("/", fs)
 
 		for _, e := range os.Environ() {
 			pair := strings.Split(e, "=")
