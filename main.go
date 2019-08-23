@@ -18,7 +18,7 @@ func main() {
 		
 		//res:= http.FileServer(http.Dir("static"))
 		
-		http.Handle("/", fs)
+		http.Handle("/", res)
 
 		for _, e := range os.Environ() {
 			pair := strings.Split(e, "=")
