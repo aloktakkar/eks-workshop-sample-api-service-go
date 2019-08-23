@@ -14,9 +14,9 @@ func main() {
 
 		f := fib()
 
-		//res := &response{Message: "Hello World"}
+		res := &response{Message: "Hello World"}
 		
-		res:= http.FileServer(http.Dir("static"))
+		//res:= http.FileServer(http.Dir("static"))
 		
 		http.Handle("/", fs)
 
