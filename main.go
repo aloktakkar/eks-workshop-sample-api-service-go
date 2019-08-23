@@ -10,9 +10,9 @@ func main() {
 	http.Handle("/", fs)
   
 	log.Println("Listening...")
-	http.ListenAndServe(":3000", nil)
+	http.ListenAndServe(":3500", nil)
   }
-  
+  /*
  type response struct {
 	Message string   `json:"message"`
 	EnvVars []string `json:"env"`
@@ -24,5 +24,5 @@ func fib() func() int {
 	return func() int {
 		a, b = b, a+b
 		return a
-	}
+	}*/
 }
