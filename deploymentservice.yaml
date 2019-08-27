@@ -17,25 +17,13 @@ metadata:
   name: octank
 spec:
   replicas: 3
-  strategy:
-    type: RollingUpdate
-    rollingUpdate:
-      maxUnavailable: 2
-      maxSurge: 2
-  selector:
-    matchLabels:
-      app: octank
   template:
     metadata:
       labels:
         app: octank
-    spec:
+spec:
       containers:
         - name: octank
           image: 526087338294.dkr.ecr.us-east-1.amazonaws.com/eksws-ecrdo-1w1tf8mzqoth1:latest
-          securityContext:
-            privileged: false
-            readOnlyRootFilesystem: true
-            allowPrivilegeEscalation: false
           ports:
             - containerPort: 8080
