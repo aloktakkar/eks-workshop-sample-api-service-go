@@ -10,7 +10,7 @@ func main() {
 	http.Handle("/", fs)
   
 	log.Println("Listening...")
-	http.ListenAndServe(":31000", nil)
+	http.ListenAndServe(":8080", nil)
   }
   
  type response struct {
