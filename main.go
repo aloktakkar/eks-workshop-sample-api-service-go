@@ -3,7 +3,6 @@ package main
 import (
 	"net/http"
 	"log"
-	"flag"
 )
 
 func main() {
