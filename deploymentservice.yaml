@@ -9,6 +9,7 @@ spec:
       targetPort: 8080
   selector:
     app: octank
+    color: green
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -28,6 +29,7 @@ spec:
     metadata:
       labels:
         app: octank
+        color: green
     spec:
       containers:
         - name: octank
@@ -38,3 +40,10 @@ spec:
             allowPrivilegeEscalation: false
           ports:
             - containerPort: 8080
+      volumes:
+        - name: podinfo
+          downwardAPI:
+            items:
+            - path: "labels"
+              fieldRef:
+                fieldPath: metadata.labels
