@@ -2,6 +2,9 @@
 version: 0.2
 phases:
   install:
+    runtime-versions:
+      docker: 18
+      golang: 1.12
     commands:
       - curl -sS -o aws-iam-authenticator https://amazon-eks.s3-us-west-2.amazonaws.com/1.10.3/2018-07-26/bin/linux/amd64/aws-iam-authenticator
       - curl -sS -o kubectl https://amazon-eks.s3-us-west-2.amazonaws.com/1.10.3/2018-07-26/bin/linux/amd64/kubectl
@@ -21,7 +24,7 @@ phases:
   post_build:
     commands:
       - docker push $REPOSITORY_URI:$TAG
-      - docker push 526087338294.dkr.ecr.us-east-1.amazonaws.com/octankblue:latest
+      - docker push 526087338294.dkr.ecr.us-east-1.amazonaws.com/octankblue/octankblue-dcrimage:latest
       - CREDENTIALS=$(aws sts assume-role --role-arn $EKS_KUBECTL_ROLE_ARN --role-session-name codebuild-kubectl --duration-seconds 900)
       - export AWS_ACCESS_KEY_ID="$(echo ${CREDENTIALS} | jq -r '.Credentials.AccessKeyId')"
       - export AWS_SECRET_ACCESS_KEY="$(echo ${CREDENTIALS} | jq -r '.Credentials.SecretAccessKey')"
