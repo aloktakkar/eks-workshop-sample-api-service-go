@@ -9,7 +9,8 @@ import (
 func main() {
 
     http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
-        http.Handle("/", http.FileServer(http.Dir("./environment/eks-workshop-sample-api-service-go/static")))
+    fmt.Fprintf(w, "Hello from the other side")
+        //    http.Handle("/", http.FileServer(http.Dir("./environment/eks-workshop-sample-api-service-go/static")))
     })
 
     http.HandleFunc("/hi", func(w http.ResponseWriter, r *http.Request) {
