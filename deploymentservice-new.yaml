@@ -1,0 +1,45 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: octank
+  labels:
+    app: octank
+    service: octank
+spec:
+  ports:
+  - port: 8080
+    name: http
+  selector:
+    app: octank
+---
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: sa-octank
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: octank-v1
+  labels:
+    app: octank
+    version: v1
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: octank
+      version: v1
+  template:
+    metadata:
+      labels:
+        app: octank
+        version: v1
+    spec:
+      serviceAccountName: sa-octank
+      containers:
+      - name: octank
+        image: 526087338294.dkr.ecr.us-east-1.amazonaws.com/eksws-ecrdo-1w1tf8mzqoth1:latest
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 8080
