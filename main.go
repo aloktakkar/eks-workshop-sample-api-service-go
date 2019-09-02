@@ -9,7 +9,7 @@ import (
 func main() {
 
     http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
-    fmt.Fprintf(w, "This is an example of and OLDER version of the docker image")
+    fmt.Fprintf(w, "This is an example of a really OLD version of the docker image. Please upgrade to a new one shortly")
     //http.Handle("/", http.FileServer(http.Dir("/static")))
     })
 
