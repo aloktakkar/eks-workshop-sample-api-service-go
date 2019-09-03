@@ -39,7 +39,7 @@ spec:
       serviceAccountName: sa-octank
       containers:
       - name: octank
-        image: 526087338294.dkr.ecr.us-east-1.amazonaws.com/eksws-ecrdo-1w1tf8mzqoth1:latest
+        image: 526087338294.dkr.ecr.us-east-1.amazonaws.com/octan-ecrdo-4tgtiksp8u09:latest
         imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 8080
