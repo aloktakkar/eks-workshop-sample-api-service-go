@@ -25,6 +25,7 @@ phases:
 
   post_build:
     commands:
+      - EKS_CLUSTER_NAME="Octankwes-eks-cluster"
       - docker push $REPOSITORY_URI:$TAG
       - CREDENTIALS=$(aws sts assume-role --role-arn $EKS_KUBECTL_ROLE_ARN --role-session-name codebuild-kubectl --duration-seconds 900)
       - export AWS_ACCESS_KEY_ID="$(echo ${CREDENTIALS} | jq -r '.Credentials.AccessKeyId')"
