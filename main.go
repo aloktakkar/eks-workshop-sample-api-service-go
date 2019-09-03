@@ -12,4 +12,4 @@ func main() {
     fmt.Fprintf(w, "This is an example of a NEW DOCKER...you are now load balancing. Please upgrade to a new one shortly")
     })
 	log.Fatal(http.ListenAndServe(":9080", nil))
-	}
+}
