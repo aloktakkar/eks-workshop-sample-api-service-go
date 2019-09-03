@@ -9,7 +9,7 @@ import (
 func main() {
 
     http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
-    fmt.Fprintf(w, "This is an example of a NEW DOCKER...you are now load balancing. Please upgrade to a new one shortly")
+fmt.Fprintf(w, "This is an example of a NEW DOCKER...you are now load balancing!!!!!!!!!!!!!")
     //http.Handle("/", http.FileServer(http.Dir("/static")))
     })
 
